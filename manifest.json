@@ -1,0 +1,37 @@
+{
+ "manifest_version": 2,
+ "name": "NotifyMe",
+ "description": "Be notified when specific HTML's TAG was changed. You can listen to a sound or see a popup notification.",
+ "version": "1",
+ "author": "Michel Gutardo Ramos de Lima",
+"browser_action": {
+   "default_title": "Notify Me",
+   "default_popup": "index.html"
+ },
+ 
+"permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "activeTab",
+    "declarativeContent",
+    "unlimited_storage",
+    "notifications",
+    "contextMenus",
+    "storage",
+    "idle"
+],
+
+"check": {
+    "scripts": ["check.js"],
+    "persistent": false
+},
+
+"content_scripts": [ {
+    "js": [ "js/jquery-3.3.1.min.js", "js/notifyme.js" ],
+    "matches": [ "<all_urls>" ],
+    "run_at": "document_end",
+    "persistent": true
+    } ]
+
+}
